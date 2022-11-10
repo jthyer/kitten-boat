@@ -3,17 +3,16 @@ local boat = {}
   boat.y = 50
   boat.hspeed = 0
   boat.vspeed = 0
-  boat.sail = true
-  boat.sailPressed = false
+  boat.windDir = 1
 
 local BOATACCEL = 2
 local BOATDEACCEL = 0.4
-local MAXSPEED = 3
+local MAXSPEED = 8
+local WINDACCEL = 1
 
 function updateBoat(dt)
   moveBoat(dt)
   wrapBoat()  
-  checkSail()
 end
 
 function moveBoat(dt)
@@ -29,7 +28,9 @@ function moveBoat(dt)
   elseif love.keyboard.isDown("down") then
     boat.vspeed = boat.vspeed + (BOATACCEL * dt) 
   end
-
+  
+  boat.hspeed = boat.hspeed - (WINDACCEL * boat.windDir * dt)
+    
   -- cap boat speed
   if boat.hspeed > MAXSPEED then 
     boat.hspeed = MAXSPEED 
@@ -42,7 +43,7 @@ function moveBoat(dt)
   elseif boat.vspeed < -MAXSPEED then
     boat.vspeed = -MAXSPEED 
   end
-
+  
   -- update x and y
   boat.x = boat.x + boat.hspeed
   boat.y = boat.y + boat.vspeed
@@ -59,38 +60,41 @@ function moveBoat(dt)
   elseif boat.hspeed < 0 then
     boat.vspeed = boat.vspeed + (BOATDEACCEL * dt)
   end
+  
+  -- which squares is it touching
+  local x1 = math.floor((boat.x + 16) / 32)
+  local x2 = x1 + 1
+  local y1 = math.floor((boat.y + 16) / 32)
+  local y2 = y1 + 1
+  
+  --local 
+  collide =
+    getCollide(x1,y1) or getCollide(x1,y2) or
+    getCollide(x2,y1) or getCollide(x2,y2)
 end
 
 function wrapBoat()
  -- wrap screen
-  if boat.x < -20 then 
-    boat.x = 620 
-  elseif boat.x > 620 then 
-    boat.x = -20
+  if boat.x < -16 then 
+    boat.x = 660 
+  elseif boat.x > 660 then 
+    boat.x = -16
   end
   
-  if boat.y < -20 then
-    boat.y = 620
-  elseif boat.y > 620 then
-    boat.y = -20
+  if boat.y < -16 then
+    boat.y = 660
+  elseif boat.y > 660 then
+    boat.y = -16
   end  
 end
 
-function checkSail()
-  if love.keyboard.isDown("z") then
-    if not boat.sailPressed then
-      boat.sail = not boat.sail
-      boat.sailPressed = true
-    end
-  else
-    boat.sailPressed = false
-  end
-end
-
 function drawBoat()
-  love.graphics.setColor(1,1,1)
-  love.graphics.circle("fill",boat.x,boat.y,20)
-  if boat.sail then
-    love.graphics.rectangle("fill",boat.x-5,boat.y-25,10,20)
+  love.graphics.setColor(1,1,0)
+  love.graphics.circle("fill",boat.x,boat.y,16)
+  --love.graphics.rectangle("fill",boat.x-4,boat.y-20,10,20)
+  
+  if collide then
+    love.graphics.setColor(1,0,0)
+    love.graphics.printf("DEAD",font,0,304,640,"center")
   end
 end

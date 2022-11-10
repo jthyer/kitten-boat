@@ -1,9 +1,11 @@
 require("boat")
+require("map")
 
 function love.load()
   -- window settings
   love.graphics.setDefaultFilter("nearest", "nearest", 1)
   love.window.setTitle("Kitten Boat")
+  font = love.graphics.newFont(32)
 end
 
 
@@ -13,7 +15,6 @@ end
     
   
 function love.draw()
-  love.graphics.setColor(.5,.5,1)
-  love.graphics.rectangle("fill",0,0,600,600)
+  drawMap()
   drawBoat()
 end
