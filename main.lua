@@ -1,6 +1,5 @@
 require("boat")
-require("map")
-require("collide")
+require("tiles")
 
 function love.load()
   -- window settings
