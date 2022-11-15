@@ -8,9 +8,11 @@ local boat = {}
 local BOATSPEED = 150
 local WINDSPEED = 1
 
+local dead = false
+
 function updateBoat(dt)
   moveBoat(dt)
-  wrapBoat()  
+  dead = checkCollisionEnemies(boat.x,boat.y)
 end
 
 function moveBoat(dt)
@@ -42,36 +44,32 @@ function moveBoat(dt)
   local new_x = boat.x + boat.hspeed
   local new_y = boat.y + boat.vspeed
   
-  local collide = getCollide(new_x,new_y)
+  if new_x < 0 then new_x = 0
+  elseif new_x > 640 then new_x = 640 end
+  if new_y < 0 then new_y = 0 
+  elseif new_y > 640 then new_y = 640 end
+   
+  local collide_x = checkCollisionSolid(new_x,boat.y)
+  local collide_y = checkCollisionSolid(boat.x,new_y)
 
-  if not collide then
+  if not collide_x then
     boat.x = new_x
+  else
+    boat.x = round(boat.x/32) * 32
+  end
+  if not collide_y then
     boat.y = new_y
+  else
+    boat.y = round(boat.y/32) * 32 
   end
-end
-
-function wrapBoat()
- -- wrap screen
-  if boat.x < -16 then 
-    boat.x = 660 
-  elseif boat.x > 660 then 
-    boat.x = -16
-  end
-  
-  if boat.y < -16 then
-    boat.y = 660
-  elseif boat.y > 660 then
-    boat.y = -16
-  end  
 end
 
 function drawBoat()
   love.graphics.setColor(1,1,0)
-  love.graphics.circle("fill",boat.x,boat.y,16)
-  --love.graphics.rectangle("fill",boat.x-4,boat.y-20,10,20)
-  
-  if collide then
+  love.graphics.circle("fill",boat.x+16,boat.y+16,16)
+
+  if dead then
     love.graphics.setColor(1,0,0)
-    love.graphics.printf("DEAD",font,0,304,640,"center")
+    love.graphics.printf("DEAD",font,0,100,640,"center")
   end
 end

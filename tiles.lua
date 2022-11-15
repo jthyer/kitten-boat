@@ -1,7 +1,7 @@
 local TILEDATA = require("tileData")
 
-function drawMap()
-  for i,v in ipairs(MAPDATA) do
+function drawTiles()
+  for i,v in ipairs(TILEDATA) do
     for j,v2 in ipairs(v) do
       if v2 == 0 then
         love.graphics.setColor(.5,.5,1)
