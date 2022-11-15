@@ -1,12 +1,12 @@
 local MAPDATA = require("mapData")
 
 function getCollide(x,y)
-  local y2 = y
-  
-  if y < 1 then y2 = 1 
-  elseif y > 20 then y2 = 20 end
+  local id_x = math.floor((x-16) / 32)
+  local id_y = math.floor((y-16) / 32)
 
-  if MAPDATA[y2][x] == 1 then
+  if MAPDATA[id_y][id_x] == 1 or MAPDATA[id_y][id_x+1] or
+     MAPDATA[id_y+1][id_x] == 1 or MAPDATA[id_y+1][id_x+1] then
+       print("collide!")
     return true
   else
     return false
