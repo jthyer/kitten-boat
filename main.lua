@@ -16,7 +16,12 @@ end
 
 
 function love.update(dt)
-  updateBoat(dt)
+  local validated_dt = dt
+  if validated_dt > 0.05 then
+    validated_dt = 0.05
+  end
+  updateBoat(validated_dt)
+  updateEnemies(validated_dt)
 end
     
   
