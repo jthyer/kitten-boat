@@ -20,16 +20,24 @@ function loadEnemies()
     enemy3.y = 128
     enemy3.hspeed = 0
     enemy3.vspeed = 250
-  local enemy4 = {}
-    enemy4.id = "bullet"
-    enemy4.x = 256
-    enemy4.y = 256
-    enemy4.hspeed = 250
-    enemy4.vspeed = 250
   table.insert(enemies,enemy)   
   table.insert(enemies,enemy2) 
   table.insert(enemies,enemy3) 
   table.insert(enemies,enemy4) 
+end
+
+function loadBullet(x,y,target_x,target_y)
+  local b = {}
+  b.id = "bullet"
+  b.x = x
+  b.y = y
+  
+  local angle = math.atan2((target_y - b.y), (target_x - b.x))
+		
+  b.hspeed = 250 * math.cos(angle)
+  b.vspeed = 250 * math.sin(angle)
+  
+  table.insert(enemies,b)
 end
 
 function updateEnemies(dt)
@@ -55,13 +63,7 @@ function updateEnemies(dt)
       end
     elseif v.id == "blueJellyfish" then
       if timer > 1 then
-        local b = {}
-          b.id = "bullet"
-          b.x = v.x
-          b.y = v.y
-          b.hspeed = 250
-          b.vspeed = 250    
-        table.insert(enemies,b)
+        loadBullet(v.x,v.y,boat.x,boat.y)
       end
     end
   end

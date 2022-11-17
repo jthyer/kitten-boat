@@ -1,4 +1,4 @@
-local boat = {}
+boat = {}
   boat.x = 50
   boat.y = 50
   boat.hspeed = 0
