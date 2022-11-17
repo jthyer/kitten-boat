@@ -1,7 +1,6 @@
 local walls = {}
 
 -- temporary, will replace later
-local TILEDATA = require("tileData") 
 function tilesToWalls()
   for i,v in ipairs(TILEDATA) do
     for j,v2 in ipairs(v) do

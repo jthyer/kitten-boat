@@ -1,5 +1,3 @@
-local TILEDATA = require("tileData")
-
 function drawTiles()
   for i,v in ipairs(TILEDATA) do
     for j,v2 in ipairs(v) do

@@ -45,9 +45,9 @@ function moveBoat(dt)
   local new_y = boat.y + boat.vspeed
   
   if new_x < 0 then new_x = 0
-  elseif new_x > 640 then new_x = 640 end
+  elseif new_x > 608 then new_x = 608 end
   if new_y < 0 then new_y = 0 
-  elseif new_y > 640 then new_y = 640 end
+  elseif new_y > 608 then new_y = 608 end
    
   local collide_x = checkCollisionSolid(new_x,boat.y)
   local collide_y = checkCollisionSolid(boat.x,new_y)

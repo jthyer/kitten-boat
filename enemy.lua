@@ -1,29 +1,15 @@
-local enemies = {}
 local timer = 0
 
 function loadEnemies()
-  local enemy = {}
-    enemy.id = "redJellyfishH"
-    enemy.x = 256
-    enemy.y = 320
-    enemy.hspeed = 250
-    enemy.vspeed = 0
-  local enemy2 = {}
-    enemy2.id = "blueJellyfish"
-    enemy2.x = 320
-    enemy2.y = 224
-    enemy2.hspeed = 0
-    enemy2.vspeed = 0
-  local enemy3 = {}
-    enemy3.id = "redJellyfishV"
-    enemy3.x = 128
-    enemy3.y = 128
-    enemy3.hspeed = 0
-    enemy3.vspeed = 250
-  table.insert(enemies,enemy)   
-  table.insert(enemies,enemy2) 
-  table.insert(enemies,enemy3) 
-  table.insert(enemies,enemy4) 
+  for i,v in ipairs(enemies) do
+    v.hspeed = 0
+    v.vspeed = 0
+    if v.id == "redJellyfishH" then
+      v.hspeed = 250
+    elseif v.id == "redJellyfishV" then
+      v.vspeed = 250
+    end
+  end
 end
 
 function loadBullet(x,y,target_x,target_y)
@@ -70,8 +56,6 @@ function updateEnemies(dt)
   if timer > 1 then
     timer = 0
   end
-  
-  print(#enemies)
 end
 
 function drawEnemies()

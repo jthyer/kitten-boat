@@ -4,6 +4,15 @@ require("enemy")
 require("tiles")
 require("util")
 
+levelData = require("levelData")
+TILEDATA = levelData.tiles
+enemies = levelData.enemies
+
+for key,v in pairs(enemies) do
+  print(v.id)
+  print(v.x..","..v.y)
+end
+
 function love.load()
   -- window settings
   love.graphics.setDefaultFilter("nearest", "nearest", 1)
