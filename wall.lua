@@ -1,8 +1,8 @@
 local walls = {}
 
--- temporary, will replace later
-function tilesToWalls()
-  for i,v in ipairs(TILEDATA) do
+function tilesToWalls(level)
+  walls = {}
+  for i,v in ipairs(LEVELDATA[level].tiles) do
     for j,v2 in ipairs(v) do
       if v2 == 1 then
         local wall = {}
@@ -13,18 +13,9 @@ function tilesToWalls()
     end
   end
 end
--- temporary, will replace later
 
-function loadWalls()
-  tilesToWalls()
-  table.insert(walls,wall2)
-end
-
-function drawWalls()
-  love.graphics.setColor(1,1,1)
-  for i,v in ipairs(walls) do
-    love.graphics.rectangle("fill",v.x,v.y,32,32)
-  end
+function loadWalls(level)
+  tilesToWalls(level)
 end
 
 function checkCollisionSolid(x,y)

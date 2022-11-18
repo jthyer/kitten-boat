@@ -1,5 +1,5 @@
-function drawTiles()
-  for i,v in ipairs(TILEDATA) do
+function drawTiles(level)
+  for i,v in ipairs(LEVELDATA[level].tiles) do
     for j,v2 in ipairs(v) do
       if v2 == 0 then
         love.graphics.setColor(.5,.5,1)

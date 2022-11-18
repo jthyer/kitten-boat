@@ -1,6 +1,9 @@
 local timer = 0
+local enemies = 0
 
-function loadEnemies()
+function loadEnemies(level)
+  timer = 0
+  enemies = deepcopy(LEVELDATA[level].enemies)
   for i,v in ipairs(enemies) do
     v.hspeed = 0
     v.vspeed = 0
@@ -75,4 +78,8 @@ end
 
 function checkCollisionEnemies(x,y)
   return checkCollision(x,y,enemies)
+end
+
+function printInstanceCount()
+  print(#enemies)
 end

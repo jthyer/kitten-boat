@@ -1,4 +1,4 @@
-function checkCollision(x, y, table)
+function checkCollision(x, y, table, mask1, mask2)
   local COLLISIONMASK = 32
   local collide = false
   
@@ -20,6 +20,22 @@ function checkCollision(x, y, table)
   end    
   
   return collide
+end
+
+-- http://lua-users.org/wiki/CopyTable
+function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
 end
 
 function round(n) 

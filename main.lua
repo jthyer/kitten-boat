@@ -1,26 +1,13 @@
-require("boat")
-require("wall")
-require("enemy")
-require("tiles")
+require("level")
 require("util")
-
-levelData = require("levelData")
-TILEDATA = levelData.tiles
-enemies = levelData.enemies
-
-for key,v in pairs(enemies) do
-  print(v.id)
-  print(v.x..","..v.y)
-end
 
 function love.load()
   -- window settings
   love.graphics.setDefaultFilter("nearest", "nearest", 1)
   love.window.setTitle("Kitten Boat")
   font = love.graphics.newFont(32)
-  
-  loadWalls()
-  loadEnemies()
+
+  loadLevel(1)
 end
 
 
@@ -29,14 +16,16 @@ function love.update(dt)
   if validated_dt > 0.05 then
     validated_dt = 0.05
   end
-  updateBoat(validated_dt)
-  updateEnemies(validated_dt)
+  updateLevel(dt)
 end
     
-  
 function love.draw()
-  drawTiles()
-  --drawWalls()
-  drawEnemies()
-  drawBoat()
+  drawLevel()
+end
+
+function love.keypressed(key)
+  if key == "space" then
+    printInstanceCount()
+    changeLevel()
+  end
 end
