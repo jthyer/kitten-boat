@@ -1,7 +1,9 @@
 require("boat")
 require("wall")
 require("enemy")
+require("gems")
 require("tiles")
+require("collide")
 
 local currentLevel = 1
 LEVELDATA = require("levelData")
@@ -14,16 +16,26 @@ function loadLevel(l)
   currentLevel = l
   loadWalls(currentLevel)
   loadEnemies(currentLevel)
+  loadGems(currentLevel)
   loadBoat() 
 end
 
 function updateLevel(dt)
-  updateBoat(dt)
-  updateEnemies(dt)
+  if updateGems() == 0 then
+    if currentLevel == 2 then
+      scene = 2
+    else
+      loadLevel(currentLevel + 1)
+    end
+  else
+    updateBoat(dt)
+    updateEnemies(dt)
+  end
 end
 
 function drawLevel()
   drawTiles(currentLevel)
+  drawGems()
   drawEnemies()
   drawBoat()
 end

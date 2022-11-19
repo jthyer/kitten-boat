@@ -2,17 +2,20 @@ local BOATSPEED = 150
 local WINDSPEED = 1
 
 function loadBoat()
+  boatTable = {}
   boat = {}
     boat.x = 50
     boat.y = 50
     boat.hspeed = 0
     boat.vspeed = 0
     boat.windDir = 0  
+    boat.mask = 24
+  table.insert(boatTable,boat)
 end
 
 function updateBoat(dt)
   moveBoat(dt)
-  if checkCollisionEnemies(boat.x,boat.y) then
+  if checkCollisionEnemies(boat.x,boat.y,8) then
     restartLevel()
   end
 end

@@ -15,14 +15,22 @@
   "compactExport": false,
   "externalScript": "",
   "playCommand": "",
-  "entityTags": ["enemy"],
+  "entityTags": ["enemy", "gem"],
   "layers": [
     {
       "definition": "entity",
       "name": "Enemies",
       "gridSize": {"x": 32, "y": 32},
       "exportID": "69329249",
-      "requiredTags": [],
+      "requiredTags": ["enemy"],
+      "excludedTags": []
+    },
+    {
+      "definition": "entity",
+      "name": "Gems",
+      "gridSize": {"x": 32, "y": 32},
+      "exportID": "82784887",
+      "requiredTags": ["gem"],
       "excludedTags": []
     },
     {
@@ -142,6 +150,42 @@
       "nodeDisplay": 0,
       "nodeGhost": true,
       "tags": ["enemy"],
+      "values": []
+    },
+    {
+      "exportID": "82797831",
+      "name": "gem",
+      "limit": -1,
+      "size": {"x": 32, "y": 32},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#f9f9f9ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 32, "y": 32},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": ["gem"],
       "values": []
     }
   ],

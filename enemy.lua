@@ -7,6 +7,7 @@ function loadEnemies(level)
   for i,v in ipairs(enemies) do
     v.hspeed = 0
     v.vspeed = 0
+    v.mask = 4
     if v.id == "redJellyfishH" then
       v.hspeed = 250
     elseif v.id == "redJellyfishV" then
@@ -20,6 +21,7 @@ function loadBullet(x,y,target_x,target_y)
   b.id = "bullet"
   b.x = x
   b.y = y
+  b.mask = 8
   
   local angle = math.atan2((target_y - b.y), (target_x - b.x))
 		
@@ -77,7 +79,7 @@ function drawEnemies()
 end
 
 function checkCollisionEnemies(x,y)
-  return checkCollision(x,y,enemies)
+  return checkCollision(x,y,enemies,4)
 end
 
 function printInstanceCount()

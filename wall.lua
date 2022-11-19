@@ -8,6 +8,7 @@ function tilesToWalls(level)
         local wall = {}
         wall.x = (j-1)*32
         wall.y = (i-1)*32
+        wall.mask = 0
         table.insert(walls,wall)
       end
     end
@@ -19,5 +20,5 @@ function loadWalls(level)
 end
 
 function checkCollisionSolid(x,y)
-  return checkCollision(x,y,walls)
+  return checkCollision(x,y,walls,0)
 end

@@ -1,6 +1,8 @@
 require("level")
 require("util")
 
+scene = 1
+
 function love.load()
   -- window settings
   love.graphics.setDefaultFilter("nearest", "nearest", 1)
@@ -16,11 +18,24 @@ function love.update(dt)
   if validated_dt > 0.05 then
     validated_dt = 0.05
   end
-  updateLevel(dt)
+  if scene == 1 then
+    updateLevel(dt)
+  end
 end
     
 function love.draw()
-  drawLevel()
+  if scene == 1 then
+    drawLevel()
+  else
+    drawWin()
+  end
+end
+
+function drawWin()
+  love.graphics.setColor(0,0,0)
+  love.graphics.rectangle("fill",0,0,640,640)
+  love.graphics.setColor(1,1,1)
+  love.graphics.printf("You win!",font,0,290,640,"center")
 end
 
 function love.keypressed(key)
