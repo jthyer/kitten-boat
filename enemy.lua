@@ -3,6 +3,17 @@ local BULLETSPEED = 200
 
 local timer = 0
 local enemies = 0
+local frame = 0
+local frameCount
+
+local enemySprites = { 
+  ["redJellyfishH"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
+  ["redJellyfishV"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
+  ["greenJellyfish"]= love.graphics.newImage("sprites/spr_greenJellyfish.png"),
+  ["blueJellyfish"]= love.graphics.newImage("sprites/spr_blueJellyfish.png"),
+  ["bullet"]= love.graphics.newImage("sprites/spr_bullet.png")
+}
+
 
 function loadEnemies(level)
   timer = 0
@@ -16,6 +27,7 @@ function loadEnemies(level)
     elseif v.id == "redJellyfishV" then
       v.vspeed = 250
     end
+    v.rotation = 0
   end
 end
 
@@ -27,15 +39,27 @@ function loadBullet(x,y,target_x,target_y)
   b.mask = 8
   
   local angle = math.atan2((target_y - b.y), (target_x - b.x))
-		
+  
+  b.rotation = angle + 1.571
+    
   b.hspeed = BULLETSPEED * math.cos(angle)
   b.vspeed = BULLETSPEED * math.sin(angle)
-  
+ 
   table.insert(enemies,b)
 end
 
 function updateEnemies(dt)
   timer = timer + dt
+  frame = frame + dt
+  frameCount = -1
+  
+  if frame < 0.5 then
+    frameCount = 1
+  elseif frame > 1 then 
+    frameCount = 1
+    frame = 0 
+  end
+  
   for i,v in ipairs(enemies) do
     if v.id == "redJellyfishH" then
       local new_x = v.x + (v.hspeed * dt)
@@ -57,7 +81,7 @@ function updateEnemies(dt)
       end
     elseif v.id == "blueJellyfish" then
       if timer > BULLETINTERVAL then
-        loadBullet(v.x,v.y,boat.x,boat.y)
+        loadBullet(v.x,v.y,boat.x+16,boat.y+16)
       end
     end
   end
@@ -67,17 +91,9 @@ function updateEnemies(dt)
 end
 
 function drawEnemies()
+  love.graphics.setColor(1,1,1)
   for i,v in ipairs(enemies) do
-    if v.id == "redJellyfishH" or v.id == "redJellyfishV" then
-      love.graphics.setColor(1,.2,.2)
-    else
-      love.graphics.setColor(.2,.2,1)
-    end
-    if v.id == "bullet" then
-      love.graphics.rectangle("fill",v.x+8,v.y+8,16,16)      
-    else
-      love.graphics.rectangle("fill",v.x,v.y,32,32)
-    end
+    love.graphics.draw(enemySprites[v.id],v.x+16,v.y+16,v.rotation,frameCount,1,16,16)
   end
 end
 

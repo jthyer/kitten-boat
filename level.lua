@@ -21,7 +21,7 @@ function loadLevel(l)
 end
 
 function updateLevel(dt)
-  if updateGems() == 0 then
+  if updateGems(dt) == 0 then
     if currentLevel == 2 then
       scene = 2
     else
