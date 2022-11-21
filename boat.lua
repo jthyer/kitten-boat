@@ -1,4 +1,4 @@
-local BOATSPEED = 150
+local BOATSPEED = 180
 local WINDSPEED = 1
 
 function loadBoat()
