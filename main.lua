@@ -8,7 +8,8 @@ function love.load()
   love.graphics.setDefaultFilter("nearest", "nearest", 1)
   love.window.setTitle("Kitten Boat")
   font = love.graphics.newFont(32)
-
+  loadTiles()  
+  
   loadLevel(1)
 end
 

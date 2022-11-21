@@ -11,6 +11,7 @@ function tilesToWalls(level)
         wall.mask = 0
         table.insert(walls,wall)
       end
+    
     end
   end
 end

@@ -3,7 +3,7 @@
   "ogmoVersion": "3.4.0",
   "levelPaths": ["."],
   "backgroundColor": "#282c34ff",
-  "gridColor": "#3c4049cc",
+  "gridColor": "#3c404900",
   "anglesRadians": true,
   "directoryDepth": 5,
   "layerGridDefaultSize": {"x": 32, "y": 32},
@@ -190,6 +190,6 @@
     }
   ],
   "tilesets": [
-    {"label": "tiles", "path": "../tileset/tileset1.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEFSURBVHhe7duhFcMwDEBBu7T7Zbds0Sm6Q3lRSEdoiHc44H9E4v8Jap6f6z+g4/le254eawYpAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXA5u/7ov8Bu+sCsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYAaowbWmgIw5C5OAUAAAAASUVORK5CYII=", "tileWidth": 32, "tileHeight": 32, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+    {"label": "tiles", "path": "../tileset/tileset.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACACAYAAACMY2IbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAKoSURBVHhe7dzBbdNgGIDhwATlxKGLcGaBTsBybMACnFkEiRtsAIpkhGUlbdpG//sTP8+lPrSpE7/5v7hx8+bw+cfvQ+jnx2/LVuPu/mHZovB2+QoJAZISICkBkhIgKQGSEiApAZISICkBkhIgKQGSEiApAZISICkBkhIgKQGSEiApAZISICkBkhIgKQGSEiApAZISICkBkhIgKQGSEiCp/PMB967+fMSaFZCUAEkZwbFLR/C7rx+WrX9eM75P3d45r9nHo8d+XoCxUwfnOXH8T07dVyN4Mrca39Gp+yZAUgKcyC2vfn9t76MASQmQlAAZbj2GBUhKgKQEOIk9nAGfIkBSAiQlQFICJCVAUgIkJUCGW18XKEBSAiQlQFICJCXASVz6n2e3RoCkpvy3zHOrwXOuGHlsRZnpypP1fu7lipj1fc4CvMbI2R6wl9xmfdAFGAR4jfiuqTzwew9w+GvA2eI7mnGf9sJJyEKEjeEjeHug7+4flq3Gr+9flq1mBK4fDyMYBhPgijE83tAAHWC2rIAMt36tK0BSAiQlQFIC3HCiNJYASQmQlAAnsZe34baGBrjXB5nzrIAM52IEpiFAUgIkJUBSQwP0LgNbVkBSAiQlwA1/LB9LgKQEOIm9nqAJkKG2TzQBTmSPq+DQAL3AZ8tHc6w+muNo9JPk1Kp3yT6cWy1fuv/Xvr2tc7cvwAkDXNvuz1Pfv/Xanz/nksfpkt8lwMkDvHVOQlZGx4cAieUjeCbFCvj70/tla5+Gr4DGHGvJCJ4xQk+MxvAR/JinxvMlkVw64mcJbu8jeKoA98hrQAgJkJQASQmQlABJCZCUAEkJkJQASQmQlABJCZCUAEkJkJQASQmQlABJCZCUAEkJkJQASQmQlABJCZCUAEkJkJQACR0OfwDEg8IFve911gAAAABJRU5ErkJggg==", "tileWidth": 32, "tileHeight": 32, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
   ]
 }

@@ -2,6 +2,8 @@ local BOATSPEED = 150
 local WINDSPEED = 1
 
 function loadBoat()
+  spr_boat = love.graphics.newImage("sprites/spr_boat.png")  
+
   boatTable = {}
   boat = {}
     boat.x = 50
@@ -71,6 +73,8 @@ function moveBoat(dt)
 end
 
 function drawBoat()
-  love.graphics.setColor(1,1,0)
-  love.graphics.circle("fill",boat.x+16,boat.y+16,16)
+  love.graphics.setColor(1,1,1)
+  love.graphics.draw(spr_boat,boat.x,boat.y)
+  --love.graphics.setColor(1,1,0)
+  --love.graphics.circle("fill",boat.x+16,boat.y+16,16)
 end

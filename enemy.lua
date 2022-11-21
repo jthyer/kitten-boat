@@ -1,3 +1,6 @@
+local BULLETINTERVAL = 1.5
+local BULLETSPEED = 200
+
 local timer = 0
 local enemies = 0
 
@@ -25,8 +28,8 @@ function loadBullet(x,y,target_x,target_y)
   
   local angle = math.atan2((target_y - b.y), (target_x - b.x))
 		
-  b.hspeed = 250 * math.cos(angle)
-  b.vspeed = 250 * math.sin(angle)
+  b.hspeed = BULLETSPEED * math.cos(angle)
+  b.vspeed = BULLETSPEED * math.sin(angle)
   
   table.insert(enemies,b)
 end
@@ -53,12 +56,12 @@ function updateEnemies(dt)
         table.remove(enemies,i)
       end
     elseif v.id == "blueJellyfish" then
-      if timer > 1 then
+      if timer > BULLETINTERVAL then
         loadBullet(v.x,v.y,boat.x,boat.y)
       end
     end
   end
-  if timer > 1 then
+  if timer > BULLETINTERVAL then
     timer = 0
   end
 end
