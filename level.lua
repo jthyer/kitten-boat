@@ -28,6 +28,7 @@ function updateLevel(dt)
       loadLevel(currentLevel + 1)
     end
   else
+    updateTiles(dt)
     updateBoat(dt)
     updateEnemies(dt)
   end

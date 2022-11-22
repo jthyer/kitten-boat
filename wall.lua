@@ -4,7 +4,7 @@ function tilesToWalls(level)
   walls = {}
   for i,v in ipairs(LEVELDATA[level].tiles) do
     for j,v2 in ipairs(v) do
-      if v2 == 1 then
+      if v2 == 1 or v2 == 2 or v2 == 3 or v2 == 4 or v2 == 18 then
         local wall = {}
         wall.x = (j-1)*32
         wall.y = (i-1)*32
