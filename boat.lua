@@ -12,6 +12,7 @@ function loadBoat()
     boat.vspeed = 0
     boat.windDir = 0  
     boat.mask = 24
+    boat.dir = 1
   table.insert(boatTable,boat)
 end
 
@@ -70,11 +71,17 @@ function moveBoat(dt)
   else
     boat.y = round(boat.y/32) * 32 
   end
+  
+  if boat.hspeed > 0 then
+    boat.dir = 1
+  elseif boat.hspeed < 0 then
+    boat.dir = -1
+  end
 end
 
 function drawBoat()
   love.graphics.setColor(1,1,1)
-  love.graphics.draw(spr_boat,boat.x,boat.y)
+  love.graphics.draw(spr_boat,boat.x+16,boat.y+16,0,boat.dir,1,16,16)
   --love.graphics.setColor(1,1,0)
   --love.graphics.circle("fill",boat.x+16,boat.y+16,16)
 end
