@@ -1,4 +1,4 @@
-local NUMLEVELS = 2
+local NUMLEVELS = 1
 local json = require("json")
 local levelData = {}
 

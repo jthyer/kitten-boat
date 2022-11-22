@@ -7,6 +7,7 @@ local frame = 0
 local frameCount
 
 local enemySprites = { 
+  ["stillJellyfish"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
   ["redJellyfishH"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
   ["redJellyfishV"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
   ["greenJellyfish"]= love.graphics.newImage("sprites/spr_greenJellyfish.png"),
