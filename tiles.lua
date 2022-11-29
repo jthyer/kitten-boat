@@ -36,7 +36,7 @@ function drawTiles(level)
     for j,v2 in ipairs(v) do
       love.graphics.draw(bg_tileset, quads[1], (j-1) * 32 + 16,(i-1) * 32 + 16,
         0,frameCount,1,16,16)
-      if v2 ~= 0 then
+      if v2 ~= -1 then
         love.graphics.draw(bg_tileset, quads[v2+1], (j-1) * 32,(i-1) * 32)
       end
     end

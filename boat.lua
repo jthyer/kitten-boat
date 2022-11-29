@@ -6,8 +6,8 @@ function loadBoat()
 
   boatTable = {}
   boat = {}
-    boat.x = 50
-    boat.y = 50
+    boat.x = 304
+    boat.y = 512
     boat.hspeed = 0
     boat.vspeed = 0
     boat.windDir = 0  
