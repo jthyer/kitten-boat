@@ -20,7 +20,7 @@ function updateGems(dt)
   end
   
   for i,v in ipairs(gems) do
-    if checkCollision(v.x,v.y,boatTable,-16) then
+    if checkCollision(v.x,v.y,boatTable,-24,0) then
       table.remove(gems,i)
     end
   end

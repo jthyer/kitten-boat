@@ -37,7 +37,7 @@ function loadBullet(x,y,target_x,target_y)
   b.id = "bullet"
   b.x = x
   b.y = y
-  b.mask = 8
+  b.mask = 16
   
   local angle = math.atan2((target_y - b.y), (target_x - b.x))
   
@@ -64,25 +64,25 @@ function updateEnemies(dt)
   for i,v in ipairs(enemies) do
     if v.id == "redJellyfishH" then
       local new_x = v.x + (v.hspeed * dt)
-      if checkCollisionSolid(new_x,v.y) then
+      if checkCollisionSolid(new_x,v.y,0) then
         v.hspeed = v.hspeed * -1
       end
       v.x = v.x + (v.hspeed * dt)
     elseif v.id == "redJellyfishV" then
       local new_y = v.y + (v.vspeed * dt)
-      if checkCollisionSolid(v.x,new_y) then
+      if checkCollisionSolid(v.x,new_y,0) then
         v.vspeed = v.vspeed * -1
       end
       v.y = v.y + (v.vspeed * dt)
     elseif v.id == "bullet" then
       v.x = v.x + (v.hspeed * dt)
       v.y = v.y + (v.vspeed * dt)      
-      if checkCollisionSolid(v.x,v.y) then
+      if checkCollisionSolid(v.x,v.y,0) then
         table.remove(enemies,i)
       end
     elseif v.id == "blueJellyfish" then
       if timer > BULLETINTERVAL then
-        loadBullet(v.x,v.y,boat.x+16,boat.y+16)
+        loadBullet(v.x,v.y,boat.x,boat.y+8)
       end
     end
   end
@@ -99,7 +99,7 @@ function drawEnemies()
 end
 
 function checkCollisionEnemies(x,y)
-  return checkCollision(x,y,enemies,4)
+  return checkCollision(x,y,enemies,4,16)
 end
 
 function printInstanceCount()

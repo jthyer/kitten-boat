@@ -1,9 +1,9 @@
-function checkCollision(x, y, table, mask)
+function checkCollision(x, y, table, mask, top_offset)
   local collide = false
   
   local a_left = x + mask
   local a_right = x + 32 - mask
-  local a_top = y + mask
+  local a_top = y + mask + top_offset
   local a_bottom = y + 32 - mask
   
   for i,v in ipairs(table) do

@@ -20,6 +20,6 @@ function loadWalls(level)
   tilesToWalls(level)
 end
 
-function checkCollisionSolid(x,y)
-  return checkCollision(x,y,walls,0)
+function checkCollisionSolid(x,y,top_offset)
+  return checkCollision(x,y,walls,0,top_offset)
 end

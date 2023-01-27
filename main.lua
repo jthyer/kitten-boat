@@ -10,7 +10,7 @@ function love.load()
   font = love.graphics.newFont(32)
   loadTiles()  
   
-  loadLevel(1)
+  loadLevel(6)
 end
 
 
