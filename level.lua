@@ -5,11 +5,10 @@ require("gems")
 require("tiles")
 require("collide")
 
-local currentLevel = 1
 LEVELDATA = require("levelData")
 
 function restartLevel(l)
-  loadLevel(currentLevel)
+  scene = 4
 end
 
 function loadLevel(l)
@@ -22,11 +21,7 @@ end
 
 function updateLevel(dt)
   if updateGems(dt) == 0 then
-    if currentLevel == 7 then
-      scene = 2
-    else
-      loadLevel(currentLevel + 1)
-    end
+    scene = 3
   else
     updateTiles(dt)
     updateBoat(dt)
@@ -39,14 +34,4 @@ function drawLevel()
   drawGems()
   drawEnemies()
   drawBoat()
-end
-
-function changeLevel()
-  local newLevel
-  if currentLevel == 1 then
-    newLevel = 2
-  else
-    newLevel = 1
-  end
-  loadLevel(newLevel)
 end

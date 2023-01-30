@@ -1,8 +1,9 @@
-local NUMLEVELS = 7
+NUMLEVELS = 7
+
 local json = require("json")
 local levelData = {}
 
-for level = 1,NUMLEVELS do
+for level = 1,NUMLEVELS+1 do
   table.insert(levelData,{})
   levelData[level].tiles = {}
   levelData[level].enemies = {}

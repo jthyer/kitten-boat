@@ -23,3 +23,7 @@ end
 function checkCollisionSolid(x,y,top_offset)
   return checkCollision(x,y,walls,0,top_offset)
 end
+
+function checkCollisionSolidBullet(x,y)
+  return checkCollision(x,y,walls,8,0)
+end

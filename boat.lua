@@ -82,6 +82,4 @@ end
 function drawBoat()
   love.graphics.setColor(1,1,1)
   love.graphics.draw(spr_boat,boat.x+16,boat.y+16,0,boat.dir,1,16,16)
-  --love.graphics.setColor(1,1,0)
-  --love.graphics.circle("fill",boat.x+16,boat.y+16,16)
 end

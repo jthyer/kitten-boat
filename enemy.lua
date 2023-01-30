@@ -64,20 +64,21 @@ function updateEnemies(dt)
   for i,v in ipairs(enemies) do
     if v.id == "redJellyfishH" then
       local new_x = v.x + (v.hspeed * dt)
-      if checkCollisionSolid(new_x,v.y,0) then
+      if checkCollisionSolid(new_x,v.y,0) or new_x < 0 or new_x > 608 then
         v.hspeed = v.hspeed * -1
       end
       v.x = v.x + (v.hspeed * dt)
     elseif v.id == "redJellyfishV" then
       local new_y = v.y + (v.vspeed * dt)
-      if checkCollisionSolid(v.x,new_y,0) then
+      if checkCollisionSolid(v.x,new_y,0) or new_y < 0 or new_y > 608 then
         v.vspeed = v.vspeed * -1
       end
       v.y = v.y + (v.vspeed * dt)
     elseif v.id == "bullet" then
       v.x = v.x + (v.hspeed * dt)
       v.y = v.y + (v.vspeed * dt)      
-      if checkCollisionSolid(v.x,v.y,0) then
+      if checkCollisionSolidBullet(v.x,v.y) or v.x < -16 or v.x > 656 or
+        v.y < -16 or v.y > 656 then
         table.remove(enemies,i)
       end
     elseif v.id == "blueJellyfish" then
