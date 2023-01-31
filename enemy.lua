@@ -12,6 +12,7 @@ local enemySprites = {
   ["redJellyfishV"] = love.graphics.newImage("sprites/spr_redJellyfish.png"),
   ["greenJellyfish"]= love.graphics.newImage("sprites/spr_greenJellyfish.png"),
   ["blueJellyfish"]= love.graphics.newImage("sprites/spr_blueJellyfish.png"),
+  ["bossJellyfish"]= love.graphics.newImage("sprites/spr_blueJellyfish.png"),
   ["bullet"]= love.graphics.newImage("sprites/spr_bullet.png")
 }
 
@@ -49,6 +50,25 @@ function loadBullet(x,y,target_x,target_y)
   table.insert(enemies,b)
 end
 
+function loadBossBulletWave(x,y,target_x,target_y)
+  local startingAngle = math.deg(math.atan2((target_y - y), (target_x - x)))
+  for i=1,10 do
+    local b = {}
+    b.id = "bullet"
+    b.x = x
+    b.y = y
+    b.mask = 16
+    
+    local angle = math.rad(startingAngle + (i * 36) - 1)
+    b.rotation = angle + 1.571
+      
+    b.hspeed = BULLETSPEED * math.cos(angle)
+    b.vspeed = BULLETSPEED * math.sin(angle)
+  
+    table.insert(enemies,b)    
+  end
+end
+
 function updateEnemies(dt)
   timer = timer + dt
   frame = frame + dt
@@ -84,6 +104,10 @@ function updateEnemies(dt)
     elseif v.id == "blueJellyfish" then
       if timer > BULLETINTERVAL then
         loadBullet(v.x,v.y,boat.x,boat.y+8)
+      end
+    elseif v.id == "bossJellyfish" then
+      if timer > BULLETINTERVAL then
+        loadBossBulletWave(v.x,v.y,boat.x,boat.y+8)
       end
     end
   end

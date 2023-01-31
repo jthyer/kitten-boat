@@ -44,4 +44,7 @@ function love.keypressed(key)
       scene = 3
     end
   end
+  if key == "r" then
+    restartGame()
+  end
 end

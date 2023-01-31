@@ -62,7 +62,7 @@
           {"x": 1, "y": 1}
         ]
       },
-      "color": "#005588ff",
+      "color": "#93d1ffff",
       "tileX": false,
       "tileY": false,
       "tileSize": {"x": 32, "y": 32},
@@ -207,6 +207,42 @@
         ]
       },
       "color": "#00ffbaff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 32, "y": 32},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": ["enemy"],
+      "values": []
+    },
+    {
+      "exportID": "19792099",
+      "name": "bossJellyfish",
+      "limit": -1,
+      "size": {"x": 32, "y": 32},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#000000ff",
       "tileX": false,
       "tileY": false,
       "tileSize": {"x": 32, "y": 32},
