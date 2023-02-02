@@ -1,4 +1,4 @@
-NUMLEVELS = 7
+NUMLEVELS = 12
 
 local json = require("json")
 local levelData = {}

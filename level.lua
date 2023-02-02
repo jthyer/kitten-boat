@@ -32,6 +32,6 @@ end
 function drawLevel()
   drawTiles(currentLevel)
   drawGems()
-  drawEnemies()
   drawBoat()
+  drawEnemies()
 end
