@@ -52,6 +52,8 @@ function moveBoat(dt)
   -- check for collision, update x and y
   local new_x = boat.x + boat.hspeed
   local new_y = boat.y + boat.vspeed
+  local old_x = boat.x
+  local old_y = boat.y
   
   if new_x < -8 then new_x = -8
   elseif new_x > 608+8 then new_x = 608+8 end
@@ -69,7 +71,13 @@ function moveBoat(dt)
   if not collide_y then
     boat.y = new_y
   else
-    boat.y = round(boat.y/16) * 16
+    boat.y = round(boat.y/16) * 16 
+  end
+  
+  -- extra check to keep boat from going into corners
+  if checkCollisionSolid(boat.x,boat.y,16) then
+    boat.x = old_x
+    boat.y = old_y
   end
   
   if boat.hspeed > 0 then
