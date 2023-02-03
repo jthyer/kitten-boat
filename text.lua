@@ -5,11 +5,9 @@ function updateTextTimer(dt)
     timer = timer + dt
   end
   
-  if timer > 1.5 and currentLevel ~= 0 and currentLevel ~= NUMLEVELS+1 then
-    endText()
-  elseif timer > 4 and currentLevel == 0 then
-    endText()
-  elseif timer > 6 and currentLevel == NUMLEVELS+1 then
+  if (timer > 1.5 and currentLevel ~= 0 and currentLevel ~= NUMLEVELS+1) or
+     (timer > 4 and currentLevel == 0) or
+     (timer > 6 and currentLevel == NUMLEVELS+1) then
     endText()
   end
 end
@@ -54,7 +52,7 @@ function drawText()
     todraw = "You win!"
     todrawFont = fontBig
   else
-    todraw = "Stage " .. tostring(currentLevel) .. " of " .. tostring(NUMLEVELS)
+    todraw = "Stage " .. tostring(currentLevel) .. " of " .. tostring(NUMLEVELS-1)
     todrawFont = fontSmall
   end
   
