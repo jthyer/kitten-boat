@@ -21,7 +21,13 @@ function updateGems(dt)
   
   for i,v in ipairs(gems) do
     if checkCollision(v.x,v.y,boatTable,-24,0) then
+
       table.remove(gems,i)
+      if #gems > 0 then
+        playSound(sndGem)
+      else
+        sndNiceWork:play()
+      end
     end
   end
   

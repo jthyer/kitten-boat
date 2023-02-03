@@ -13,10 +13,8 @@ function love.load()
   fontBig = love.graphics.newFont("BetterComicSansBold.ttf",64,"mono")
   loadTiles()  
   
-  -- set music
-  song = love.audio.newSource("music/BeachBBQWithVeryGoodFriends.ogg", "stream")
-  song:setLooping(true)
-  song:play()
+  -- set aduio
+  loadSounds()
 end
  
 

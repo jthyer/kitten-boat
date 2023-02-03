@@ -28,6 +28,9 @@ function loadEnemies(level)
     elseif v.id == "redJellyfishV" then
       v.vspeed = 250
     end
+    if v.id == "bossJellyfish" and v.x == 320 then
+      v.x = v.x - 16
+    end
     v.rotation = 0
   end
 end
@@ -84,12 +87,14 @@ function updateEnemies(dt)
     if v.id == "redJellyfishH" then
       local new_x = v.x + (v.hspeed * dt)
       if checkCollisionSolid(new_x,v.y,0) or new_x < 0 or new_x > 608 then
+        playSound(sndBump)
         v.hspeed = v.hspeed * -1
       end
       v.x = v.x + (v.hspeed * dt)
     elseif v.id == "redJellyfishV" then
       local new_y = v.y + (v.vspeed * dt)
       if checkCollisionSolid(v.x,new_y,0) or new_y < 0 or new_y > 608 then
+        playSound(sndBump)
         v.vspeed = v.vspeed * -1
       end
       v.y = v.y + (v.vspeed * dt)
@@ -102,10 +107,12 @@ function updateEnemies(dt)
       end
     elseif v.id == "blueJellyfish" then
       if timer > BULLETINTERVAL then
+        sndPew:play()
         loadBullet(v.x,v.y,boat.x,boat.y+8)
       end
     elseif v.id == "bossJellyfish" then
       if timer > BULLETINTERVAL then
+        sndZap:play()
         loadBossBulletWave(v.x,v.y,boat.x,boat.y+8)
       end
     end

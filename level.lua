@@ -8,6 +8,7 @@ require("collide")
 LEVELDATA = require("levelData")
 
 function restartLevel(l)
+  playDeathSound()
   scene = 4
 end
 

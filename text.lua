@@ -25,6 +25,12 @@ function endText()
     currentLevel = currentLevel + 1
     scene = 1
   end
+  if scene == 1 and currentLevel > 0 and currentLevel <= NUMLEVELS then
+    sndGetReady:play()
+  end
+  if scene == 1 and currentLevel == NUMLEVELS + 1 then
+    sndYouWon:play()
+  end
 end
 
 function drawText()
