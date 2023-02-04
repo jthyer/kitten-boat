@@ -1,4 +1,4 @@
-EXPORTTYPE = 1 -- 1 for web, 2 for desktop
+EXPORTTYPE = 2 -- 1 for web, 2 for desktop
 
 require("level")
 require("text")
@@ -36,6 +36,10 @@ end
  
 
 function love.update(dt)
+  if song:isPlaying() == false then
+    song:play()
+  end  
+  
   local validated_dt = dt
   if validated_dt > 0.05 then
     validated_dt = 0.05

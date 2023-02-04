@@ -1,0 +1,13 @@
+name = "Jellyfish Archipelago"
+default_targets = ["win32", "win64"]
+build_directory = "builds"
+icon_file = "icon.ico"
+
+love_version = "11.4"
+
+love_files = [
+    "+*",
+    "-*/.*",
+    "-./builds/*",
+]
+

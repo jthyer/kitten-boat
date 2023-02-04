@@ -31,6 +31,9 @@ function loadEnemies(level)
     if v.id == "bossJellyfish" and v.x == 320 then
       v.x = v.x - 16
     end
+    if v.id == "blueJellyfish" and currentLevel == 12 then
+      v.x = v.x - 16
+    end
     v.rotation = 0
   end
 end

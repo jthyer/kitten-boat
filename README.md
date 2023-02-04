@@ -3,11 +3,12 @@
 Jellyfish Archipelago - Sylvie Jam entry
 
 To do: 
-- stage 4 gem on top of player
-- make corners land in stage 10
+- make sure volume balancing is good
 - test windows vs browser export, make sure it all works
 
 Completed 2/3:
+- make corners land in stage 10
+- stage 4 gem on top of player
 - fix corner collision
 - Remove debug space press
 - Fullscreen option for windows export, esc to quit for windows export
