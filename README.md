@@ -1,35 +1,15 @@
 # kitten-boat
 
-Jellyfish Archipelago - Sylvie Jam entry
+Jellyfish Archipelago
 
-To do: 
-- make sure volume balancing is good
-- test windows vs browser export, make sure it all works
+a game by John Thyer (farawaytimes.itch.io)
 
-Completed 2/3:
-- make corners land in stage 10
-- stage 4 gem on top of player
-- fix corner collision
-- Remove debug space press
-- Fullscreen option for windows export, esc to quit for windows export
+made with Love2D (love2d.org), Bosca Ceoil (boscaceoil.net), Piskel (piskelapp.com), and OGMO Editor (ogmo-editor-3.github.io)
 
-Completed 2/2:
-- Make boss jellyfish move 16 pixels left
-- Finish all stage layouts
-- Voice sound effects for collecting gems, jellyfish zap, death sound, jellyfish bounce, stage win, game win. (Can I compress them?)
-- Add beachBBQ midi after quieting bass, maybe making melody a bit louder
-- Credits
-- Add shading to jellyfish and player sprite
-- Add twinkle animation to gems (can't make it look good, don't care)
+BetterComicSans font by Quinn Davis Type: fontspace.com/qd-better-comic-sans-font-f41648
 
-Completed 1/31:
-- Boss jellyfish
-- Centered all text
-- Auto-advance tutorial screen after five seconds
-- Figure out how to advance title screen, working around javascript music limitation (press space to start?)
-- R restarts game
-- Make tree and rock sand tiles solid
+late submission to Sylvie's Jam #1: itch.io/jam/sylvies-jam-1
 
-Font: 
-license: Public Domain
-link: https://www.fontspace.com/qd-better-comic-sans-font-f41648
+move with arrow keys, skip text with space, escape to quit, F to toggle fullscreen
+
+debug commands: pageup goes to previous level, pagedown skips to next level
