@@ -1,5 +1,5 @@
 name = "Jellyfish Archipelago"
-default_targets = ["win32", "win64", "macos"]
+default_targets = ["win32", "win64", "macos", "appimage"]
 build_directory = "builds"
 icon_file = "icon.ico"
 
